@@ -4,12 +4,14 @@ class VueRouter {
     constructor(options) {
         // 1.保存配置信息
         this.$options = options
+
         // 2.借vue动态数据 改变页面
         this.app = new Vue({
             data: {
                 current: '/'
             },
         })
+
         // 3.创建map映射
         this.routerMap = {}
         this.createRouteMap(this.$options)
@@ -26,10 +28,10 @@ class VueRouter {
         window.addEventListener('reload', this.onHashChange.bind(this))
     }
     onHashChange() {
-        this.app.current = window.location.hash.slice(1)||'/'
+        this.app.current = window.location.hash.slice(1) || '/'
     }
-    createRouteMap(options) {
 
+    createRouteMap(options) {
         options.routes.forEach(item => {
             this.routerMap[item.path] = item
         })
@@ -52,6 +54,7 @@ class VueRouter {
         )
     }
 }
+
 VueRouter.install = function (_vue) {
     // 实现install方法成为插件 vue会传入一个实例进来
     Vue = _vue

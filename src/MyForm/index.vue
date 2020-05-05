@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-link to="/">主页</router-link>
     <my-form :data="user" :rules="rules" ref="Form">
       <Form-item label="姓名" prop="username">
         <!-- v-modle语法糖 -->
@@ -25,7 +26,7 @@ import FormItem from "./FormItem";
 import myInput from "./myInput";
 import myForm from "./myForm";
 import create from "@/utils/create";
-import Notice from "../Notice";
+import Notice from "../MyNotice";
 export default {
   components: {
     myInput,
