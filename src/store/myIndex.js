@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import MVuex from '../MyVuex/myVuex'
 
-Vue.use(Vuex)
+Vue.use(MVuex)
 
-export default new Vuex.Store({
+export default new MVuex.Store({
   state: {
     count: 0
   },
@@ -14,9 +14,12 @@ export default new Vuex.Store({
   },
   actions: {
     asyncAdd({ commit }, val) {
-      setTimeout(() => {
-        commit('add', val)
-      }, 1500);
+      return new Promise(resolve => {
+        setTimeout(() => {
+          commit('add', val)
+          resolve({ errno: 0, msg: '成功' })
+        }, 2000)
+      })
     }
   },
   getters: {

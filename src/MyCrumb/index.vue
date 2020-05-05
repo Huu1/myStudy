@@ -1,8 +1,12 @@
 <template>
   <div>
-    <div v-for="(item,index) in data" :key="index" class="index">
-      <router-link :to="{name:item}" tag="a">{{item}}</router-link>
-    </div>hello 大家好 我是面包屑导航, 你们好呀
+    <div class="index">
+      <div v-for="(item,index) in data" :key="index">
+        <router-link :to="{name:item}" tag="a">{{item}}</router-link>
+        <span v-if="index<data.length-1">></span>
+      </div>
+    </div>
+    ssssssssssssssssssssss
   </div>
 </template>
 
@@ -25,7 +29,7 @@ export default {
 </script>
 
 <style>
-.index{
-  
+.index {
+  display: flex;
 }
 </style>
